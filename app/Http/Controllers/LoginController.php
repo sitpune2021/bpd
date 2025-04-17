@@ -47,8 +47,7 @@ class LoginController extends Controller
     public function sendOtp(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'mobile' => 'required|digits:10',
-          
+            'mobile' => 'required|digits:10',          
         ]);
 
         if ($validate->fails()) {
@@ -60,14 +59,12 @@ class LoginController extends Controller
         $user = User::updateOrCreate(
             [
                 'mobile' => $request->mobile,
-               
             ],
 
         );
         $user->otp = $otp;
         $user->otp_expires_at = Carbon::now()->addMinutes(5);
         $user->save();
-
 
         return response()->json(['message' => 'OTP sent successfully','otp'=>$otp,'status'=>true],200);
         }
