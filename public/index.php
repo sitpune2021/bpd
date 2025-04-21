@@ -1,7 +1,5 @@
 <?php
 
-
-echo "Hi";die();
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
@@ -55,4 +53,5 @@ $response = $kernel->handle(
     $request = Request::capture()
 )->send();
 
+dd($kernel);
 $kernel->terminate($request, $response);
