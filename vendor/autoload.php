@@ -19,6 +19,7 @@ if (PHP_VERSION_ID < 50600) {
         E_USER_ERROR
     );
 }
+dd('demo');
 
 require_once __DIR__ . '/composer/autoload_real.php';
 
